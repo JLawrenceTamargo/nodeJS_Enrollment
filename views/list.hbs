@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <title>Admin - Student List</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">JLT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.hbs">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Admin List</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container py-5 my-5">
+      <table class="table table-striped">
+        <tr>
+          <th colspan="8"><h3 class="text-center p-3">List of Enrolled Students</h3></th>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <th>First Name:</th>
+          <th>Last Name:</th>
+          <th>Contact #:</th>
+          <th>Email:</th>
+          <th>Action</th>
+        </tr>
+        {{#each user}}
+        <tr>
+          <td>{{this.student_id}}</td>
+          <td>{{this.student_fname}}</td>
+          <td>{{this.student_lname}}</td>
+          <td>{{this.student_contact}}</td>
+          <td>{{this.student_email}}</td>
+          <td><a href="/auth/adminUpdateRecord/{{this.student_id}}">Update</a> <a href="/auth/adminDeleteRecord/{{this.student_id}}">Delete</a></td>
+        </tr>
+        {{/each}}
+        <tr>
+          <td colspan="8" class="text-center"><a type="button" href="/adminStudentRegister" class="btn btn-primary rounded">Register Student</button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="text-center bg-primary fixed-bottom">
+      <small>Copyright 2021 by JLT.</small>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
